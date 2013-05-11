@@ -1,14 +1,12 @@
 set :application, "capistrano-example"
-set :repository,  "git@github.com:jasonrhodes/capistrano-example.git"
-
+set :repository,  "git://github.com/jasonrhodes/capistrano-example.git"
+                   
 set :scm, 'git'
-# Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
+set :ssh_options, { :forward_agent => true }
 set :branch, "master"
 
-set :user, "jasorho6"
-set :deploy_to, "/home/jasorho6/jrhodes.me/public_html/capistrano-example"
-set :domain, "jasonthings.com"
+set :user, "webuser"
+set :deploy_to, "/var/www/html/sandbox/public/cap_files"
+set :domain, "esgjhumktgst.esg.johnshopkins.edu"
 role :web, domain              # Your HTTP server, Apache/etc
 role :app, domain              # This may be the same as your `Web` server
-role :db,  "your primary db-server here", :primary => true # This is where Rails migrations will run
-role :db,  "your slave db-server here"
