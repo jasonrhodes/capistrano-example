@@ -10,3 +10,6 @@ set :deploy_to, "/var/www/html/sandbox/public/cap_files"
 set :domain, "esgjhumktgst.esg.johnshopkins.edu"
 role :web, domain              # Your HTTP server, Apache/etc
 role :app, domain              # This may be the same as your `Web` server
+
+# You don't need to use sudo
+set :use_sudo, false
